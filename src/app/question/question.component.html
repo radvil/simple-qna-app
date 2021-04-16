@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <mat-card *ngIf="form && !isLoading" class="question">
+    <h2 class="question-text">Question {{ selectedQuestion.id }} / 5</h2>
+    <h3 class="question-text">
+      {{ selectedQuestion.title }}
+    </h3>
+
+    <form [formGroup]="form" (ngSubmit)="nextOrFinish()">
+      <mat-form-field *ngIf="inputType !== 'radio'; else radioInput">
+        <mat-label>Your Answer</mat-label>
+        <input
+          formControlName="answer"
+          matInput
+          [type]="inputType"
+          autocomplete="off"
+          placeholder="Type your answer"
+        />
+        <mat-error *ngIf="answerControl.invalid">
+          {{ errorMessage }}
+        </mat-error>
+      </mat-form-field>
+
+      <ng-template #radioInput>
+        <label>{{ selectedQuestion.title }}</label>
+        <mat-radio-group formControlName="answer">
+          <mat-radio-button *ngFor="let value of radioOptions" [value]="value">
+            {{ value | uppercase }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>Your selected: {{ answerControl.value | uppercase }}</div>
+        <mat-error *ngIf="answerControl.invalid">
+          {{ errorMessage }}
+        </mat-error>
+      </ng-template>
+
+      <button
+        *ngIf="idInt < 5; else finishBtn"
+        [disabled]="form.invalid || answerControl.invalid"
+        type="submit"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon>navigate_next</mat-icon>&nbsp;{{ nextButtonText }}
+      </button>
+
+      <ng-template #finishBtn>
+        <button
+          [disabled]="form.invalid"
+          (click)="nextOrFinish()"
+          type="button"
+          mat-flat-button
+          color="primary"
+        >
+          <mat-icon>done_all</mat-icon>&nbsp;Selesai
+        </button>
+      </ng-template>
+    </form>
+  </mat-card>
+</div>

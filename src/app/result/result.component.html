@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="fx-container" *ngIf="results?.length; else placeholder">
+    <h1>Selamat, Anda telah selesai</h1>
+    <ul>
+      <li *ngFor="let r of results">
+        <mat-card>
+          <h3 style="color: red">Nomor {{ r.id }}</h3>
+          <p><b>Pertanyaan</b>: {{ r.title }}</p>
+          <p><b>Jawaban Anda</b>: {{ r.answer }}</p>
+        </mat-card>
+      </li>
+    </ul>
+    <button color="primary" mat-flat-button routerLink="/">Mulai Lagi</button>
+  </div>
+
+  <ng-template #placeholder>
+    <div class="fx-container">
+      <h2>Anda belum mempunyai jawaban</h2>
+      <button color="primary" mat-flat-button routerLink="/">Mulai Kuis</button>
+    </div>
+  </ng-template>
+</div>

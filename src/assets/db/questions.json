@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Tuliskan alamat email anda ?",
+    "inputType": "email",
+    "options": null
+  },
+  {
+    "id": "2",
+    "title": "Berapa umur anda sekarang ?",
+    "inputType": "number",
+    "options": null
+  },
+  {
+    "id": "3",
+    "title": "Apa jenis kelamin anda ?",
+    "inputType": "radio",
+    "options": ["laki-laki", "perempuan"]
+  },
+  {
+    "id": "4",
+    "title": "Apa nama klub sepakbola favorit anda ?",
+    "inputType": "text",
+    "options": null
+  },
+  {
+    "id": "5",
+    "title": "Apakah anda suka nonton anime ?",
+    "inputType": "radio",
+    "options": ["ya", "tidak"]
+  }
+]

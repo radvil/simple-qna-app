@@ -1,0 +1,38 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question {
+  width: 70vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question-text {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin-top: 1rem;
+  height: 50px;
+  width: 100%;
+}
+
+mat-radio-button {
+  margin: 1rem;
+}
